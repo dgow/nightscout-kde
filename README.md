@@ -2,6 +2,17 @@
 
 Shows your current glucose value from a [Nightscout](https://nightscout.github.io/) server in the Plasma panel or on the desktop.
 
+<table>
+  <tr>
+    <td align="center"><img src="screenshots/desktop.png" alt="Nightscout widget on the desktop showing 163 with a flat trend arrow, -4 mg/dL, just now" width="444"></td>
+    <td align="center"><img src="screenshots/panel.png" alt="Nightscout widget in a vertical panel showing 163 with a flat trend arrow" width="126"></td>
+  </tr>
+  <tr>
+    <td align="center">On the desktop</td>
+    <td align="center">In a panel</td>
+  </tr>
+</table>
+
 - Glucose value with trend arrow and delta (e.g. `112 ↗ +4`)
 - mg/dL or mmol/L
 - Colour coding: green in range, orange high, red low

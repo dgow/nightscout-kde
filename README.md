@@ -1,5 +1,7 @@
 # <img src="icon.png" alt="" width="40" align="center"> Nightscout widget for KDE Plasma 6
 
+[![KDE Store](https://img.shields.io/badge/KDE%20Store-Nightscout-1d99f3?logo=kde&logoColor=white)](https://www.opendesktop.org/p/2381783/)
+
 Shows your current glucose value from your [Nightscout](https://nightscout.github.io/) server, right in your Plasma panel or on your desktop.
 
 <table>

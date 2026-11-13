@@ -1,6 +1,6 @@
 # Nightscout widget for KDE Plasma 6
 
-Shows your current glucose value from a [Nightscout](https://nightscout.github.io/) server in the Plasma panel or on the desktop.
+Shows your current glucose value from your [Nightscout](https://nightscout.github.io/) server, right in your Plasma panel or on your desktop.
 
 <table>
   <tr>
@@ -13,12 +13,20 @@ Shows your current glucose value from a [Nightscout](https://nightscout.github.i
   </tr>
 </table>
 
-- Glucose value with trend arrow and delta (e.g. `112 ↗ +4`)
+## Features
+
+- Current glucose value with trend arrow and change since the last reading (e.g. `112 ↗ +4`)
 - mg/dL or mmol/L
-- Colour coding: green in range, orange high, red low
-- Stale readings are greyed out and struck through
-- Low readings flag the widget as needing attention, so it stays visible in a collapsed system tray
-- Click for a detailed view; middle-click to refresh
+- Colour coding: green in range, orange high, red low (limits are configurable)
+- Old readings are greyed out and struck through, so you notice when data stops coming in
+- Low readings flag the widget as needing attention, so it stays visible even in a collapsed system tray
+- Click for a larger view with how long ago the reading was taken
+- Middle-click or right-click → *Refresh* to update immediately
+- On the desktop, the background can be turned off so the number sits on your wallpaper
+
+## Requirements
+
+Plasma 6 and a Nightscout server.
 
 ## Installation
 

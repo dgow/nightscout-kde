@@ -1,0 +1,18 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Id": "io.github.dgow.nightscout",
+        "Name": "Nightscout",
+        "Description": "Shows your current glucose value, trend arrow and delta from a Nightscout server",
+        "Icon": "raindrop-nightscout",
+        "Category": "Online Services",
+        "Version": "1.0.0",
+        "License": "GPL-2.0-or-later",
+        "Authors": [
+            {
+                "Name": "Johann Bauer"
+            }
+        ]
+    },
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

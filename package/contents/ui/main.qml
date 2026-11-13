@@ -19,6 +19,7 @@ PlasmoidItem {
     property string errorText: ""
     property bool loading: false
     property double now: Date.now()
+    property int retriesLeft: 0
 
     readonly property bool hasData: readingTime > 0
     readonly property int minutesAgo: hasData ? Math.max(0, Math.floor((now - readingTime) / 60000)) : -1
@@ -92,6 +93,11 @@ PlasmoidItem {
         xhr.onreadystatechange = function() {
             if (xhr.readyState !== XMLHttpRequest.DONE) return;
             loading = false;
+            if (xhr.status === 0 && retriesLeft > 0) {
+                // Network not up yet (e.g. right after waking from sleep): try again shortly
+                retriesLeft--;
+                retryTimer.restart();
+            }
             if (xhr.status !== 200) {
                 errorText = xhr.status === 401 ? i18n("Unauthorized – check the access token")
                     : xhr.status === 0 ? i18n("Could not reach server")
@@ -110,6 +116,7 @@ PlasmoidItem {
                 hasPrevious = entries.length > 1;
                 previousSgv = hasPrevious ? entries[1].sgv : 0;
                 errorText = "";
+                retriesLeft = 0;
                 now = Date.now();
             } catch (e) {
                 errorText = i18n("Invalid response from server");
@@ -123,7 +130,14 @@ PlasmoidItem {
         xhr.send();
     }
 
+    function refreshNow() {
+        retriesLeft = 6;
+        refresh();
+        refreshTimer.restart();
+    }
+
     Timer {
+        id: refreshTimer
         interval: Math.max(15, root.cfg.refreshInterval) * 1000
         running: true
         repeat: true
@@ -132,10 +146,26 @@ PlasmoidItem {
     }
 
     Timer {
-        interval: 30000
+        id: retryTimer
+        interval: 10000
+        onTriggered: root.refresh()
+    }
+
+    // Detects waking from sleep: timers don't run while suspended,
+    // so a large gap between two ticks means the system was asleep.
+    Timer {
+        property double lastTick: Date.now()
+        interval: 5000
         running: true
         repeat: true
-        onTriggered: root.now = Date.now()
+        onTriggered: {
+            const t = Date.now();
+            if (t - lastTick > 30000) {
+                root.refreshNow();
+            }
+            lastTick = t;
+            root.now = t;
+        }
     }
 
     Connections {

@@ -39,7 +39,7 @@ Or download it from the store page: https://www.opendesktop.org/p/2381783/
 Manually, from a downloaded `.plasmoid` file:
 
 ```sh
-kpackagetool6 -t Plasma/Applet -i nightscout-1.0.0.plasmoid
+kpackagetool6 -t Plasma/Applet -i nightscout-1.0.1.plasmoid
 ```
 
 ## Configuration

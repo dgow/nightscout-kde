@@ -6,7 +6,7 @@
         "Description": "Shows your current glucose value, trend arrow and delta from a Nightscout server",
         "Icon": "raindrop-nightscout",
         "Category": "Online Services",
-        "Version": "1.0.0",
+        "Version": "1.0.1",
         "License": "GPL-2.0-or-later",
         "Authors": [
             {

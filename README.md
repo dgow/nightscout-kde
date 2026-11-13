@@ -32,6 +32,8 @@ Plasma 6 and a Nightscout server.
 
 From Plasma: right-click the panel or desktop → *Add Widgets…* → *Get New Widgets…* → *Download New Plasma Widgets* → search for **Nightscout**.
 
+Or download it from the store page: https://www.opendesktop.org/p/2381783/
+
 Manually, from a downloaded `.plasmoid` file:
 
 ```sh
